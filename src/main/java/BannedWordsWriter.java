@@ -1,5 +1,6 @@
 
 import reader.XLSXReader;
+import writer.XMLWriter;
 
 import java.io.InputStream;
 import java.util.List;
@@ -13,11 +14,13 @@ public class BannedWordsWriter {
     public static void main (String args[]) throws Exception {
 
         XLSXReader reader = new XLSXReader();
+        XMLWriter writer = new XMLWriter();
 
         ClassLoader loader = ClassLoader.getSystemClassLoader();
         InputStream inputStream = loader.getResourceAsStream("banned_words_en_uk.xlsx");
-        List<String> cells = reader.getCells(inputStream);
+        List<String> cellData = reader.getCells(inputStream);
 
+        writer.writeXML(cellData);
     }
 
 }

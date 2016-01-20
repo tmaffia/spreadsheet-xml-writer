@@ -28,7 +28,6 @@ public class XLSXReader {
             row = (XSSFRow) rowIterator.next();
             Cell cell = row.getCell(0);
             result.add(cell.toString());
-            System.out.println(cell.toString());
         }
         return result;
     }
